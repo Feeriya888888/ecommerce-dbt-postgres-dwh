@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: dbt_dwh_postgres
+    environment:
+      POSTGRES_USER: dbt_user
+      POSTGRES_PASSWORD: dbt_password
+      POSTGRES_DB: ecommerce_dwh
+    ports:
+      - "5432:5432"
+    volumes:
+      - dbt_pgdata:/var/lib/postgresql/data
+      - ./init_raw.sql:/docker-entrypoint-initdb.d/init_raw.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dbt_user -d ecommerce_dwh"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  dbt_pgdata:
