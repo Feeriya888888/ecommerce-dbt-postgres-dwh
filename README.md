@@ -1,4 +1,4 @@
-# ecommer# E-Commerce Analytics DWH with dbt (data build tool)
+# E-Commerce Analytics DWH with dbt (data build tool)
 
 Производственный проект по трансформации данных (ELT) на базе **dbt Core** и **PostgreSQL 17**. Проект демонстрирует переход от сырых транзакционных таблиц интернет-магазина (по структуре классического датасета Kaggle *Brazilian E-Commerce / Olist*) к аналитической модели «Звезда» (Kimball) с инкрементальной загрузкой, автоматизированными тестами качества данных и бизнес-метриками (RFM-сегментация, LTV, Cohort Retention).
 
